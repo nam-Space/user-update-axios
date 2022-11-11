@@ -1,0 +1,8 @@
+.wrapper_users, .wrapper-form {
+  	padding: 10px;
+}
+
+.error{
+	color: red;
+	font-weight: 700;
+}

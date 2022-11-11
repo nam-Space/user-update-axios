@@ -1,27 +1,17 @@
+import { Routes, Route } from 'react-router-dom';
 import './App.css';
-import axios from 'axios';
-import { useEffect, useState } from 'react';
+import AddUser from './components/AddUser';
+import UserDetail from './components/UserDetail';
+import Users from './components/Users';
 
 function App() {
-	const [users, setUsers] = useState([])
-
-	useEffect(() => {
-		axios.get('http://localhost:3000/users')
-			.then((res) => {
-				setUsers(res.data)
-			})
-	}, [])
-
 	return (
-		<div className="App">
-			<h1>Users</h1>
-			<ul>
-				{users.map(user=> (
-					<li key={user.id}>{user.name}</li>
-				))}
-			</ul>
-		</div>
-	);
+		<Routes>
+			<Route path='/' element={<Users />}/>
+			<Route path='/user/:id' element={<UserDetail />} />
+			<Route path='/add' element={<AddUser />} />
+		</Routes>
+	)
 }
 
 export default App;
